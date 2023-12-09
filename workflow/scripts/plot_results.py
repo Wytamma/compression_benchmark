@@ -194,7 +194,7 @@ def main():
     uncompressed_size = {}
     for p in map(Path, snakemake.input.uncompressed_sizes):
         size = int(p.read_text().strip())
-        name = p.name.split(".")[0]
+        name = p.stem
         uncompressed_size[name] = size
 
     size_df = pd.read_csv(snakemake.input.compressed_sizes).set_index(
@@ -209,7 +209,7 @@ def main():
     mode = "compress"
     frames = []
     for p in map(Path, snakemake.input.compress_benchmarks):
-        name = p.name.split(".")[0]
+        name = p.stem
         lvl = int(p.parts[-3])
         group = p.parts[-2]
         tool = p.parts[-4]
@@ -232,7 +232,7 @@ def main():
     mode = "decompress"
     frames = []
     for p in map(Path, snakemake.input.decompress_benchmarks):
-        name = p.name.split(".")[0]
+        name = p.stem
         lvl = int(p.parts[-3])
         group = p.parts[-2]
         tool = p.parts[-4]

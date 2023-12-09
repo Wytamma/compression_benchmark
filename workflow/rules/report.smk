@@ -17,7 +17,7 @@ rule aggregate_sizes:
                 tool = p.parts[-4]
                 lvl = p.parts[-3]
                 group = p.parts[-2]
-                name = p.name.split(".")[0]
+                name = p.stem
                 size = p.read_text().strip()
                 print(",".join([tool, lvl, group, name, size]), file=fd)
 
