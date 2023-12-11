@@ -1,5 +1,5 @@
-samples: config/samples.csv
-out: results
+input_csv: config/samples.csv
+output_dir: results
 
 tools:
   gzip:

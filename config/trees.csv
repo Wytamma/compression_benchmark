@@ -1,0 +1,8 @@
+group,file
+primate-mtDNA,https://raw.githubusercontent.com/taming-the-beast/Introduction-to-BEAST2/master/precooked_runs/primate-mtDNA_long.trees
+InfluenzaAH3N2_HAgene_2009_California_homochronous,https://github.com/taming-the-beast/Prior-selection/raw/master/precooked_runs/Homochronous_30M-InfluenzaAH3N2_HAgene_2009_California_homochronous.trees
+hcv_bdsky_30M,https://github.com/taming-the-beast/Skyline-plots/raw/master/precooked_runs/hcv_bdsky_30M-hcv.trees
+hcv_coal_30M,https://github.com/taming-the-beast/Skyline-plots/raw/master/precooked_runs/hcv_coal_30M-hcv.trees
+bacter_tutorial,https://raw.githubusercontent.com/taming-the-beast/Bacter-Tutorial/master/precooked_runs/bacter_tutorial.Ecoli_rplA.trees
+h1n1_UCLD_prior,https://github.com/taming-the-beast/Molecular-Dating-Tutorial/raw/master/precooked_runs/h1n1_UCLD_prior.trees
+h3n2_2deme,https://github.com/taming-the-beast/Structured-coalescent/raw/master/precooked_runs/MTT.h3n2_2deme.typedNode.trees

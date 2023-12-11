@@ -8,7 +8,7 @@ WORKFLOW = Path(workflow.basedir)
 RULES = WORKFLOW / "rules"
 ENVS = WORKFLOW / "envs"
 SCRIPTS = WORKFLOW / "scripts"
-RESULTS = Path(config["out"]).resolve()
+RESULTS = Path(config["output_dir"]).resolve()
 BENCH = RESULTS / "benchmark"
 LOGS = Path("logs/rules").resolve()
 CONTAINERS = config["containers"]
@@ -18,17 +18,22 @@ combos = []
 target_files = set()
 
 samples = {}
-with open(config["samples"]) as file:
+with open(config["input_csv"]) as file:
     for sample in csv.DictReader(file):
-        # Extract the path and check if it exists
-        path = Path(sample["file"])
-        # Extract the stem name from the path if it exists, else use None
-        name = path.stem if path else None
-        
-        if not path.exists():
-            path = None
+        file = sample["file"]
+        # check if file is url
+        if file.startswith("http"):
+            path = file
+            name = file.split("/")[-1]
         else:
-            path = path.resolve()  # Get the absolute path
+            # Extract the path and check if it exists
+            path = Path(file)
+            # Extract the stem name from the path if it exists, else use None
+            name = path.stem if path else None
+            if not path.exists():
+                path = None
+            else:
+                path = path.resolve()  # Get the absolute path
 
         # Store the sample information in the dictionary
         samples[name] = {
